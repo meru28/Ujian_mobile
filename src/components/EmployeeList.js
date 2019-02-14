@@ -12,8 +12,13 @@ class EmployeeList extends Component {
         this.props.getEmployeeList();
     }
 
-    renderRow = ({item}) => {
-        return <EmployeeListItem employee={item}/>
+    renderRow = () => {
+        const listJSX = this.props.employees.map((item) => {
+        return (
+            <EmployeeListItem key={item.uid} employee={item}/>
+        );
+            });
+            return listJSX;
     }
 
     render() {
@@ -24,7 +29,7 @@ class EmployeeList extends Component {
                         centerComponent={{ text: 'Photo Album', style: { color: '#fff' }}}
                 />
                 <ScrollView>
-                    
+                    {this.renderRow()}
                 </ScrollView>
             </View>
         );

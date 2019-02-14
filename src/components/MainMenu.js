@@ -2,8 +2,6 @@ import React from 'react';
 import { createBottomTabNavigator, createAppContainer, TabNavigator } from 'react-navigation';
 import EmployeeList from './EmployeeList';
 import EmployeeCreate from './EmployeeCreate';
-import EmployeeEdit from './EmployeeEdit';
-import Profile from './Profile';
 import { Icon } from 'react-native-elements';
 
 export default createBottomTabNavigator(

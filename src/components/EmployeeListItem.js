@@ -12,21 +12,28 @@ class EmployeeListItem extends Component {
             headerTextStyle,
             thumbnailStyle,
             thumbnailContainerStyle,
-            imageStyle } = styles;
-        const { image, caption } = this.props.employee;
+            imageStyle,
+            emailStyle } = styles;
+        const { phone, name } = this.props.employee;
         return (
             <Card>
                 <CardSection>
                     <View style={ thumbnailContainerStyle }>
-                    <Image source={{ uri: image }}
+                    <Image source={{ uri: phone }}
                            style={{thumbnailStyle}}
                            />
                     </View>
                     <View style={headerContentStyle}>
-                        <Text style={headerTextStyle}>{caption}</Text>
-                        <Text>{caption}</Text>
+                        <Text style={headerTextStyle}>{name}</Text>
                     </View>
-                    <Text style={styles.nameStyle}>{caption}</Text>
+                </CardSection>
+                <CardSection>
+                    <Image source={{uri: phone}}
+                           style={imageStyle}/>
+                </CardSection>
+                <CardSection>
+                    <Text style={emailStyle}/>
+                    <Text>{}</Text>
                 </CardSection>
             </Card>
         );
@@ -51,7 +58,12 @@ const styles = {
         height: 300,
         flex:1,
         width: null
-    }
+    },
+    emailStyle: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        marginRight: 10
+    },
 };
 
 export default connect(null, { employeeUpdate })(EmployeeListItem);
