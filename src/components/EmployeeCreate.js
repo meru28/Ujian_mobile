@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Header } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { employeeCreate } from '../actions';
+import { employeeCreate, logoutUser } from '../actions';
 import EmployeeForm from './EmployeeForm';
 import { Card, CardSection, Button } from './common';
 
@@ -28,7 +28,7 @@ class EmployeeCreate extends Component {
                     rightComponent={{ 
                         icon: 'home', 
                         color: '#fff', 
-                        onPress: () => this.props.logOut
+                        onPress: () => {this.logOut()}
                     }}
                 />
                 <Card>
@@ -50,4 +50,4 @@ const mapStateToProps = (state) => {
     return { name, phone, shift };
 };
 
-export default connect(mapStateToProps, { employeeCreate })(EmployeeCreate);
+export default connect(mapStateToProps, { employeeCreate, logoutUser })(EmployeeCreate);
